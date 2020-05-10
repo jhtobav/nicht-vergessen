@@ -16,11 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from . import views
 
-app_name = 'core'
 urlpatterns = [
-    path('', views.core, name='index'),
     path('notes/', include('notes.urls')),
     path('admin/', admin.site.urls),
 ]
