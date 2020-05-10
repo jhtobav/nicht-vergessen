@@ -5,7 +5,7 @@
         <p>Inhalt der Notiz: {{note.note_content}}</p>
         <p>Letzte Änderungszeit der Notiz: {{note.note_last_updated_time}}</p>
     </ul>
-    <a href="{% url 'notes'%}">Rückkehr</a>
+    <a href="{% url 'notes:notes'%}">Rückkehr</a>
 {% else %}
     <p>Keine Hotiz.</p>
 {% endif %}

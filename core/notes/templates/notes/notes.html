@@ -1,11 +1,21 @@
+<h1>Hallo hallo, herzlich willkommen, Sie bin auf der Indexseite der App \"Nicht Vergessen \".</h1>
 {% if notes_list %}
-    <p>Hallo hallo, herzlich willkommen, Sie bin auf der Indexseite der App \"Nicht Vergessen \".</p>
     <ul>
     {% for note in notes_list %}
-        <li><a href="{% url 'note_details' note.id%}">{{ note.note_title }}</a></li>
+        <li><a href="{% url 'notes:note_details' note.id %}">{{ note.note_title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>Keine Hotiz.</p>
 {% endif %}
-
+<h1>Erstellen Sie eine neue Notiz:</h1>
+<form action="{% url 'notes:note_create' %}" method="post">
+    {% csrf_token %}
+    <label>Titel der Notiz: </label>
+    <input type="text" name="note_title">
+    <br>
+    <label>Inhalt der Notiz: </label>
+    <input type="text" name="note_content">
+    <br>
+    <input type="submit" value="Erstellen">
+</form>
