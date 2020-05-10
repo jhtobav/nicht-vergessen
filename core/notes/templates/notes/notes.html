@@ -1,0 +1,11 @@
+{% if notes_list %}
+    <p>Hallo hallo, herzlich willkommen, Sie bin auf der Indexseite der App \"Nicht Vergessen \".</p>
+    <ul>
+    {% for note in notes_list %}
+        <li><a href="{% url 'note_details' note.id%}">{{ note.note_title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Keine Hotiz.</p>
+{% endif %}
+

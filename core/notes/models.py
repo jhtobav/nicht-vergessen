@@ -5,12 +5,12 @@ from django.utils import timezone
 
 
 class Note(models.Model):
-    name = models.CharField(max_length=20)
-    text = models.CharField(max_length=200)
-    created_date = models.DateTimeField('Date created')
+    note_title = models.CharField(max_length=20)
+    note_content = models.CharField(max_length=200)
+    note_last_updated_time = models.DateTimeField('Last time updated')
 
     def __str__(self):
         return self.name
 
-    def was_created_recently(self):
-        return self.created_date >= timezone.now() - datetime.timedelta(days=1)
+    def was_modified_recently(self):
+        return self.note_last_updated_time >= timezone.now() - datetime.timedelta(days=1)
