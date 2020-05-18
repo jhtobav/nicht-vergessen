@@ -10,7 +10,7 @@ class Note(models.Model):
     note_last_updated_time = models.DateTimeField('Last time updated')
 
     def __str__(self):
-        return self.name
+        return self.note_title
 
     def was_modified_recently(self):
         return self.note_last_updated_time >= timezone.now() - datetime.timedelta(days=1)
