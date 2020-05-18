@@ -1,0 +1,28 @@
+<h1>Hallo hallo, herzlich willkommen, Sie sehen seine Ratings</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% if ratings_list %}
+    <ul>
+    {% for rating in ratings_list %}
+        <li><a href="{% url 'ratings:rating_details' rating.id %}">{{ rating.rating_title }} - {{rating.rating_score}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Keine Ratings.</p>
+{% endif %}
+<h1>Erstellen Sie eine neue Rating:</h1>
+<form action="{% url 'ratings:rating_create' %}" method="post">
+    {% csrf_token %}
+    <label>Name des Titels: </label>
+    <input type="text" name="rating_title">
+    <br>
+    <label>Art des Titels: </label>
+    <input type="text" name="rating_type">
+    <br>
+    <label>Rating des Titels: </label>
+    <input type="text" name="rating_score">
+    <br>
+    <label>Kritik des Titels: </label>
+    <input type="text" name="rating_review">
+    <br>
+    <input type="submit" value="Erstellen">
+</form>
