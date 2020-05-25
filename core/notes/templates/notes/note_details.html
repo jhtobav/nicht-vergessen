@@ -1,10 +1,26 @@
 {% if note %}
-    <p>Sie sehen die Notiz nummer {{note.id}}</p>
-    <ul>
-        <p>Titel der Notiz: {{note.note_title}}</p>
-        <p>Inhalt der Notiz: {{note.note_content}}</p>
-        <p>Letzte Änderungszeit der Notiz: {{note.note_last_updated_time}}</p>
-    </ul>
+    <form action="{% url 'notes:note_modify' %}" method="post">
+        {% csrf_token %}
+        <p>Sie sehen die Notiz nummer {{note.id}}</p>
+        <ul>
+            <input type="text" name="note_id" value="{{note.id}}" hidden="true">
+            <label>Titel der Notiz: </label>
+            <input type="text" name="note_title" value="{{note.note_title}}">
+            <br>
+            <label>Inhalt der Notiz: </label>
+            <textarea name="note_content" cols="20" rows="10">{{note.note_content}}</textarea>
+            <br>
+            <p>Letzte Änderungszeit der Notiz: {{note.note_last_updated_time}}</p>
+            <input type="submit" value="Änderungen speichern">
+        </ul>
+    </form>
+    <form action="{% url 'notes:note_delete' %}" method="post">
+        {% csrf_token %}
+        <ul>
+            <input type="text" name="note_id" value="{{note.id}}" hidden="true">
+            <input type="submit" value="Löschen">
+        </ul>
+    </form>
     <a href="{% url 'notes:notes'%}">Rückkehr</a>
 {% else %}
     <p>Keine Hotiz.</p>

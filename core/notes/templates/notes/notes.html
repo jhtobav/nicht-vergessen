@@ -13,10 +13,10 @@
 <form action="{% url 'notes:note_create' %}" method="post">
     {% csrf_token %}
     <label>Titel der Notiz: </label>
-    <input type="text" name="note_title">
+    <input type="text" name="note_title" required>
     <br>
     <label>Inhalt der Notiz: </label>
-    <input type="text" name="note_content">
+    <textarea name="note_content" cols="20" rows="10"></textarea>
     <br>
     <input type="submit" value="Erstellen">
 </form>
