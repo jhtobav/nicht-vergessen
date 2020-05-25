@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function confirm_action(action){
+            return confirm("Please confirm the action: \n" + action);
+        }
+    </script>
+</head>
+<body>
+
 {% if note %}
     <form action="{% url 'notes:note_modify' %}" method="post">
         {% csrf_token %}
@@ -5,7 +16,7 @@
         <ul>
             <input type="text" name="note_id" value="{{note.id}}" hidden="true">
             <label>Titel der Notiz: </label>
-            <input type="text" name="note_title" value="{{note.note_title}}">
+            <input type="text" name="note_title" value="{{note.note_title}}" required maxlength="20">
             <br>
             <label>Inhalt der Notiz: </label>
             <textarea name="note_content" cols="20" rows="10">{{note.note_content}}</textarea>
@@ -14,7 +25,7 @@
             <input type="submit" value="Änderungen speichern">
         </ul>
     </form>
-    <form action="{% url 'notes:note_delete' %}" method="post">
+    <form action="{% url 'notes:note_delete' %}" onsubmit="return confirm_action('Löschen die Notiz')" method="post">
         {% csrf_token %}
         <ul>
             <input type="text" name="note_id" value="{{note.id}}" hidden="true">
@@ -25,3 +36,6 @@
 {% else %}
     <p>Keine Hotiz.</p>
 {% endif %}
+
+</body>
+</html>
