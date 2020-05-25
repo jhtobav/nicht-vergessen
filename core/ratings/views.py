@@ -8,11 +8,8 @@ from .models import Rating
 
 # Create your views here.
 def ratings(request):
-    try:
-        ratings_list = Rating.objects.order_by("-rating_score")
-        return render(request, 'ratings/ratings.html', {'ratings_list': ratings_list})
-    except Rating.DoesNotExist:
-        return render(request, 'ratings/ratings.html', {})
+    ratings_list = Rating.objects.order_by("-rating_score")
+    return render(request, 'ratings/ratings.html', {'ratings_list': ratings_list})
 
 
 def rating_details(request, rating_id):

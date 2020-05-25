@@ -7,11 +7,8 @@ from .models import Note
 
 
 def notes(request):
-    try:
-        notes_list = Note.objects.order_by('-note_last_updated_time')
-        return render(request, 'notes/notes.html', {'notes_list': notes_list})
-    except Note.DoesNotExist:
-        raise Http404('Es gibt keine Notiz mit dieser Nummer')
+    notes_list = Note.objects.order_by('-note_last_updated_time')
+    return render(request, 'notes/notes.html', {'notes_list': notes_list})
 
         # output = '.\n '.join([n.text for n in latest_notes_list])
 
