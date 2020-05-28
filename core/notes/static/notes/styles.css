@@ -1,0 +1,66 @@
+body {
+  background-color: #264653;
+}
+header {
+  background-color: #2a9d8f;
+  padding: 1px;
+  text-align: center;
+  font-size: 1px;
+  color: white;
+}
+
+.container-menu{
+	text-align: right;
+	position: fixed;
+	left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 35px;
+	
+}
+
+.container{
+	 padding: 30px;
+	 text-align: center;
+}
+
+.popup{
+	background-color: #e9c46a;
+
+}
+
+.btn-popup{
+
+	background-color: #e9c46a;
+	text-align: center;
+}
+
+#boton_2{
+
+  color: #264653;
+  background-color: #e9c46a;
+  padding: 10px;
+  width: 254px;
+  height: 140px;
+}
+
+.btn-circle {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  padding: 3px 0;
+  font-size: 25px;
+  line-height: 1.428571429;
+  border-radius: 30px;
+  color: #2a9d8f;
+  background-color: white;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #457B9D;
+}
